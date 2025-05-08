@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Portfolio</title>
+    <title>Hasanka- Personal Portfolio</title>
     <style>
         /* Custom CSS Variables */
         :root {
@@ -116,7 +116,7 @@
 
         
         .hero {
-            height: 80vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
@@ -126,7 +126,7 @@
         }
 
         .hero::before {
-            content: '';
+            content: '      ';
             position: absolute;
             top: 0;
             left: 0;
@@ -139,7 +139,18 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 600px;
+            max-width: 800px;
+        }
+        .hero-contents {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding-bottom:75px ;
+            height: 4.5em; /* Adjust based on your tallest sentence */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
@@ -150,12 +161,13 @@
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 1px;
         }
 
         .btn {
             display: inline-block;
             padding: 12px 25px;
+            margin-bottom: 0px;
             background-color: var(--accent-color);
             color: white;
             border-radius: 5px;
@@ -198,7 +210,7 @@
         }
 
         .about-img {
-            flex: 1;
+            flex: 0.5;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
@@ -603,33 +615,78 @@
     </header>
 
     <!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Hello, I'm <span id="your-name">Hasanka Dilochana</span></h1>
-            <p>A passionate professional with expertise in Mechanical Engineering Technology</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-            <a href="https://drive.google.com/file/d/1F6ISh0eD8qyAHN6WoUTE_GwGjj5OyDNW/view?usp=sharing" class="btn" download>Download CV</a>
-            
-            <!-- Social Links -->
-            <div class="social-links">
-                <div class="social-link">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="social-link">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="social-link">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="social-link">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
+    <section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Hello, I'm <span id="your-name"><br>Hasanka Dilochana <br></span></h1>
+      <div class="hero-contents ">
+      <p id="hero-description" class="typing-text"> </p>
     </div>
+    <div>
+      <a href="#contact" class="btn">Get In Touch</a>
+      <a href="https://drive.google.com/file/d/1b5EuYgYSOdiw-Yh1hmSdGb5KuS543Ax4/view?usp=sharing" class="btn" download>Download CV</a>
+    </div>
+  </div>
 </section>
 
+<style>
+    
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .typing-text {
+    font-size: 1.2rem;
+    border-right: 2px solid #333;
+    display: inline-block;
+    overflow: hidden;
+    white-space: normal; /* Allow wrapping */
+    vertical-align: bottom;
+    animation: blink-caret 0.7s step-end infinite;
+    min-height: 1em; /* Reserve height for longer sentences */
+    padding: 0 1px;
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    10% { border-color: #333; }
+  }
+</style>
+
+<script>
+  const descriptions = [
+    "Driven by innovation, passionate about emerging technologies, and dedicated to designing practical solutions for real-world engineering challenges.",
+    "Currently seeking internship opportunities to apply my skills and grow within a forward-thinking, tech-driven environment."
+  ];
+
+  const textElement = document.getElementById("hero-description");
+  let descIndex = 0;
+  let charIndex = 0;
+
+  function typeSentence(sentence, callback) {
+    if (charIndex < sentence.length) {
+      textElement.textContent += sentence.charAt(charIndex);
+      charIndex++;
+      setTimeout(() => typeSentence(sentence, callback), 30);
+    } else {
+      setTimeout(callback, 3000); // Wait 3 seconds before switching
+    }
+  }
+
+  function startTypingAnimation() {
+    textElement.textContent = "";
+    charIndex = 0;
+    typeSentence(descriptions[descIndex], () => {
+      descIndex = (descIndex + 1) % descriptions.length;
+      startTypingAnimation();
+    });
+  }
+
+  // Start on page load
+  startTypingAnimation();
+</script>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -641,7 +698,7 @@
 
                 </div>
                 <div class="about-text">
-                    <p>I am a Mechanical and Manufacturing Engineering Technology undergraduate who loves finding practical, creative ways to solve real-world problems. I'm especially excited about how emerging technologies can improve the way we design and manufacture, and I enjoy working with others to bring those ideas to life.</p>
+                    <p> I am a third-year undergraduate specializing in Mechanical and Manufacturing Engineering Technology at the Faculty of Technology, Wayamba University of Sri Lanka. I aspire to become a top Automation Engineer, fueled by a deep enthusiasm for leveraging emerging technologies to enhance design and manufacturing processes. I enjoy finding practical, creative solutions to real-world problems and thrive in collaborative environments where ideas are transformed into impactful projects. Currently, I am seeking industrial training opportunities at a company that values innovation and aligns with my passion for automation and technology-driven manufacturing.</h3></p>
                     
                     <div class="skills">
                         <h3>My Skills</h3>
@@ -663,7 +720,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <!-- <section id="experience" class="experience">
         <div class="container">
             <h2>Professional Experience</h2>
             <div class="timeline">
@@ -677,7 +734,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
@@ -699,21 +756,17 @@
                             <span class="project-tag">GPS</span>
                             <span class="project-tag">Embedded Systems</span>
                         </div>
-                        <p class="project-description">Developing an intelligent safety helmet with real-time monitoring and alert systems for industrial environments.</p>
+                        <p class="project-description">The Smart Safety Helmet is a wearable device designed to improve safety in industrial environments. It features fall detection, gas sensing, GPS tracking, and emergency alerts, enabling real-time response. An SOS and cancel button give users quick, manual control in emergencies.</p>
                         <span class="show-details-btn">View Details</span>
                         <div class="project-details">
                             <h4>Project Goals</h4>
-                            <p>To enhance worker safety in industrial environments through smart helmet technology that provides real-time monitoring, hazard detection, and emergency response capabilities.</p>
-                            
-                            <h4>My Role</h4>
-                            <p>Lead developer responsible for designing real-time alert systems to improve emergency response efficiency. Integrating various sensors and developing the core functionality of the smart helmet.</p>
-                            
+                            <p>Reduce workplace accidents, improve emergency response, and create a safer working environment using smart technology. It combines real-time monitoring, environmental sensing, and wireless communication to support industrial safety standards.</p><br>
                             <h4>Technologies Used</h4>
-                            <p>IoT, sensor integration (motion, air quality), GPS tracking, embedded systems, real-time data processing, emergency alert systems.</p>
+                            <p>The system uses technologies such as an ESP32 microcontroller, sensors for gas, pressure, vibration, and motion, and modules for GPS and GSM communication. All components are integrated into a compact, rechargeable helmet unit.</p>
                             
-                            <h4>Challenges & Solutions</h4>
-                            <p>Balancing the addition of technology with helmet comfort and weight. Solving this by selecting miniaturized components and optimizing the power management system for extended battery life while maintaining safety standards.</p>
-                            
+                            <!-- <h4>Challenges & Solutions</h4>
+                            <p>Challenges include managing false alarms, limited space for hardware, and ensuring reliable communication. These are being addressed through smart sensor placement, data filtering, and ergonomic design.</p>
+                             --><br>
                             <h4>Current Status</h4>
                             <p>Ongoing project (March 2025 - Present) in development phase with working prototypes demonstrating core safety features.</p>
                         </div>
@@ -732,21 +785,21 @@
                             <span class="project-tag">Pump Systems</span>
                             <span class="project-tag">Renewable Energy</span>
                         </div>
-                        <p class="project-description">Developing sustainable solar-powered water management solutions for agricultural irrigation in remote areas.</p>
+                        <p class="project-description">This project focuses on creating sustainable, solar-powered water management systems for agricultural irrigation in remote areas. It aims to ensure efficient water use, reduce energy costs, and support reliable farming practices where access to electricity and infrastructure is limited.</p>
                         <span class="show-details-btn">View Details</span>
                         <div class="project-details">
                             <h4>Project Goals</h4>
-                            <p>To provide affordable and reliable water access for farmers in off-grid regions by developing solar-powered pump systems that can effectively utilize water from low-slope streams.</p>
+                            <p>Water Management System for Low Sloped Water Streams, aims to solve the issue of water scarcity in farming areas where water levels are low and electricity access is limited. To address this, we propose using solar-powered pumps to provide a sustainable water supply.</p>
                             
-                            <h4>My Role</h4>
+                            <!-- <h4>My Role</h4>
                             <p>Field researcher and system designer. Conducted interviews with local farmers to understand real-world challenges and gathered system requirements. Performed feasibility studies on solar-powered pump efficiency.</p>
-                            
+                             --><br>
                             <h4>Technologies Used</h4>
-                            <p>Solar energy systems, various pump technologies, renewable energy integration, sustainable agriculture systems.</p>
+                            <p>The project uses solar energy systems to power water pumps, removing the need for electricity or fuel. Different types of pump technologies are tested to find the most efficient options for low-flow conditions. </p>
                             
-                            <h4>Challenges & Solutions</h4>
+                            <!-- <h4>Challenges & Solutions</h4>
                             <p>Addressing the variable flow rates in low-sloped streams while maintaining pump efficiency. Developing adaptive systems that can operate effectively under changing environmental conditions.</p>
-                            
+                             --><br>
                             <h4>Current Status</h4>
                             <p>Ongoing project (August 2024 - Present) with promising initial results from feasibility studies.</p>
                         </div>
@@ -771,15 +824,16 @@
                             <h4>Project Goals</h4>
                             <p>To demonstrate innovative use of unconventional materials in musical instrument design while applying core mechanical engineering principles.</p>
                             
-                            <h4>My Role</h4>
+                            <!-- <h4>My Role</h4>
                             <p>Designer and builder. Applied principles of structural integrity, vibration response, and material selection to create a functional percussion instrument from repurposed materials.</p>
-                            
+                             -->
+                            <br>
                             <h4>Technologies Used</h4>
                             <p>Mechanical design tools, structural analysis techniques, acoustic engineering concepts, material repurposing methodologies.</p>
-                            
+                            <br>
                             <h4>Challenges & Solutions</h4>
                             <p>Achieving proper tonal quality using non-traditional materials. Solved through iterative design and testing of different configurations to optimize sound production.</p>
-                            
+                            <br>
                             <h4>Results</h4>
                             <p>Successfully created a functional musical instrument that demonstrates principles of mechanical engineering and creative material usage.</p>
                         </div>
@@ -800,14 +854,17 @@
                             <span class="project-tag">GSM</span>
                         </div>
                         <p class="project-description">Low-cost, portable Advanced Driver Assistance System for vehicles in low-income regions with crash detection and emergency notifications.</p>
+                        <br>
+                        <p>The project was later recognized as the best at the university.</p>
                         <span class="show-details-btn">View Details</span>
                         <div class="project-details">
                             <h4>Project Goals</h4>
                             <p>To develop an affordable, portable driver assistance system that could improve road safety in regions where advanced vehicle safety features are not commonly available.</p>
                             
-                            <h4>My Role</h4>
-                            <p>Lead developer responsible for microcontroller programming, sensor integration, and overall system design.</p>
                             
+                            <!-- <h4>My Role</h4>
+                            <p>Lead developer responsible for microcontroller programming, sensor integration, and overall system design.</p>
+                             -->
                             <h4>Technologies Used</h4>
                             <p>Arduino microcontrollers, ultrasonic sensors for proximity detection, vibration sensors for crash detection, GPS for location tracking, GSM modules for emergency notifications.</p>
                             
@@ -854,11 +911,11 @@
                     <div class="contact-links">
                         <div class="contact-link">
                             <i class="fas fa-envelope"></i>
-                            <span>hasankadilochana207@gmail.com</span>
+                            <span><a href="mailto:hasankadilochana207@gmail.com">hasankadilochana207@gmail.com</a></span>
                         </div>
                         <div class="contact-link">
                             <i class="fas fa-phone"></i>
-                            <span>072 976 7209</span>
+                            <span>+94 72 976 7209</span>
                         </div>
                         <div class="contact-link">
                             <i class="fas fa-map-marker-alt"></i>
@@ -905,23 +962,24 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
+            <!-- <div class="social-links">
                 <div class="social-link">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://linkedin.com/in/hasanka-dilochana" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="social-link">
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://web.facebook.com/hasanka.dilochana.3" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
+                <!-- <div class="social-link">
+                    <a href="https://twitter.com/your-username" target="_blank"><i class="fab fa-twitter"></i></a> -->
+                <!-- </div>
                 <div class="social-link">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="social-link">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
+                    <a href="https://www.instagram.com/hasanka_d_kodikara/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div> -->
             </div>
             <p>&copy; 2025 Hasanka Dilochana. All Rights Reserved.</p>
         </div>
     </footer>
+    
 
     <script>
         // Toggle project details
